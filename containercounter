@@ -20,11 +20,11 @@ else:
         hook = Webhook('WEBHOOK URL') #Enter a valid Discord webhook URL here.
         embed = Embed(
             description='WARNING: Containers are missing. Please check running Dockers.',
-            color=0xff0000,
+            color=0xff0000, #any hexidecimal color code works here.
             timestamp='now'
             )
 
-        image1 = 'https://i.imgur.com/llx3ql8.png'
+        image1 = 'https://i.imgur.com/rdm3W9t.png' #update the thumbnail here.
 
         embed.set_author(name='Container Counter Error', icon_url=image1)
         embed.add_field(name='Missing Containers', value=r)

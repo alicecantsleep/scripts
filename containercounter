@@ -5,7 +5,7 @@ import subprocess
 import dhooks
 from dhooks import Webhook, Embed
 
-c = 19
+c = 19 #total number of containers that SHOULD be running.
 s = subprocess.check_output('docker ps -q | wc -l', shell=True)
 a = s.decode('ascii')
 r = (c) - int(a)
@@ -17,7 +17,7 @@ else:
         print ('All containers running!')
     else:
         print ('WARNING: ', r, ' containers are missing. Please check running Dockers.')
-        hook = Webhook('WEBHOOK URL')
+        hook = Webhook('WEBHOOK URL') #Enter a valid Discord webhook URL here.
         embed = Embed(
             description='WARNING: Containers are missing. Please check running Dockers.',
             color=0xff0000,

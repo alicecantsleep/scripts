@@ -1,0 +1,36 @@
+#!/bin/bash
+#written by deathbydentures
+
+import subprocess
+import dhooks
+from dhooks import Webhook, Embed
+
+c = 19
+s = subprocess.check_output('docker ps -q | wc -l', shell=True)
+a = s.decode('ascii')
+r = (c) - int(a)
+
+if int(a) > c:
+    print ('All containers running!')
+else:
+    if int(a) == c:
+        print ('All containers running!')
+    else:
+        print ('WARNING: ', r, ' containers are missing. Please check running Dockers.')
+        hook = Webhook('WEBHOOK URL')
+        embed = Embed(
+            description='WARNING: Containers are missing. Please check running Dockers.',
+            color=0xff0000,
+            timestamp='now'
+            )
+
+        image1 = 'https://i.imgur.com/llx3ql8.png'
+
+        embed.set_author(name='Container Counter Error', icon_url=image1)
+        embed.add_field(name='Missing Containers', value=r)
+        embed.add_field(name='Total Containers', value=c)
+        embed.set_footer(text='Ya shit broke, dawg', icon_url=image1)
+
+        embed.set_thumbnail(image1)
+
+        hook.send(embed=embed)

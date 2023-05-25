@@ -7,7 +7,7 @@
 #DON'T FORGET THE CONFIG FILE
 
 # Load the configuration
-source 'mfb21d_config.ini'
+source 'MFB21D_config.ini'
 
 # Create the backup directory if it doesn't exist
 mkdir -p "$backup_dir"

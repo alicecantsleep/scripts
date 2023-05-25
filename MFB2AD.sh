@@ -7,7 +7,7 @@
 #DON'T FORGET THE CONFIG FILE
 
 # Load the configuration
-source 'mfb2ad_config.ini'
+source 'MFB2AD_config.ini'
 
 # Loop through each file in the file_list
 for file_data in "${file_list[@]}"; do
